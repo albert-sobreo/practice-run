@@ -31,11 +31,17 @@
           </form>
         </article>
 
-        <article v-for="post in posts" class="thread">
-          <h3>[[ post.username ]]</h3>
-          <p>[[ post.post ]]</p>
-          <span vote @click="up(post.id)">🔼[[ post.upvote ]]</span>
-          <span vote @click="down(post.id)">🔽[[ post.downvote ]]</span>
+        <article v-for="post in posts" class="thread" style="display: flex;">
+          <div style="display:flex; flex-direction:column">
+            <span vote @click="up(post.id)">🔼</span>
+            <span style="justify-content: center; align-items:center; text-align:center">[[post.upvote - post.downvote]]</span>
+            <span vote @click="down(post.id)">🔽</span>
+          </div>
+
+          <div style="display: flex; flex-direction:column">
+            <h3>[[ post.username ]]</h3>
+            <p>[[ post.post ]]</p>
+          </div>
         </article>
 
 

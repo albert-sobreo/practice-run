@@ -17,7 +17,7 @@ def post(request):
     for post in posts:
         newData.append({'id': post.pk, 'username': 'me', 'post': post.post, 'upvote': post.upvote, 'downvote': post.downvote})
 
-    return JsonResponse(newData, safe=False)
+    return JsonResponse(newData[::-1], safe=False)
 
 def push(request):
     post = Post()
@@ -28,6 +28,19 @@ def push(request):
 
     return redirect('/')
 
+def upvote(request, pk):
+    post = Post.objects.get(pk=pk)
+    post.upvote += 1
+    post.save()
+    data = {'id': post.pk, 'username': 'me', 'post': post.post, 'upvote': post.upvote, 'downvote': post.downvote}
+    return JsonResponse(data, safe=False)
+
+def downvote(request, pk):
+    post = Post.objects.get(pk=pk)
+    post.downvote += 1
+    post.save()
+    data = {'id': post.pk, 'username': 'me', 'post': post.post, 'upvote': post.upvote, 'downvote': post.downvote}
+    return JsonResponse(data, safe=False)
 # def upvotepost(request, post_id):
 #     post = Post.object.get(id=post_id)
 

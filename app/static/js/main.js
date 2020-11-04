@@ -62,7 +62,7 @@ App = new Vue({
     entry:'',
 
     posts:[{
-      id:0, username:'System', post:'Fetching Data From Server', upvote:0, downvote:0
+      id:0, username:'System', post:'Fetching Data From Server', upvote:0, downvote:0,
     }],
 
   },
@@ -92,7 +92,7 @@ App = new Vue({
 
     push(){
       Server.push(this.userName, this.entry);
-      this.entry = '';
+      this.entry = ''; 
 
     },
 
