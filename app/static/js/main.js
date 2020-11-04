@@ -1,7 +1,7 @@
 Server = {
   // Get Posts
   posts(){
-    fetch('/posts.json')
+    fetch('/post')
     .then(response => response.json())
     .then(data => App.posts = data);
   },
@@ -12,10 +12,10 @@ Server = {
   push(username, data){
     payload = {
       username: username,
-      post: post,
+      post: data,
     };
-    fetch(`/push`,{
-      method:'POST',
+    fetch('/push/',{
+      method:'GET',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json;charset=UTF-8'
@@ -50,6 +50,7 @@ Server = {
 
 
 App = new Vue({
+  delimiters: ['[[', ']]'],
   el:'#app',
   data:{
     username:'',

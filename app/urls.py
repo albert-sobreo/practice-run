@@ -3,5 +3,8 @@ from app import views
 from django.views.generic import TemplateView
 
 urlpatterns = [
-    path('', views.home, name='home')
+    path('', views.home),
+    path('post/', views.post),
+    path('push/', views.push)
+
 ]

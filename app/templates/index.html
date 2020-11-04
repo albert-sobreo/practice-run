@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>Sample</title>
+    <script type="text/javascript" src="/static/js/vue.js"></script>
+
+  </head>
+  <body>
+    <main id="app">
+      <div modal v-bind:ready="ready">
+        <div prompt>
+          <h2>Let's Get Started</h2>
+          <input type="text" name="" v-model="username" placeholder="username">
+          <br>
+          <button type="button" @click="start" class="full">Start</button>
+        </div>
+      </div>
+
+      <section>
+        <h2 v-show="ready==true">Hello [[ userName ]]</h2>
+
+        <article>
+          <h3>Create</h3>
+          <form action="/push/" method="POST">{%csrf_token%}
+            <textarea name="post" id="post"></textarea>
+            <div class="right">
+              <button type="submit" name="button">Post</button>
+            </div>
+          </form>
+        </article>
+
+        <article v-for="post in posts" class="thread">
+          <h3>[[ post.username ]]</h3>
+          <p>[[ post.post ]]</p>
+          <span vote @click="up(post.id)">🔼[[ post.upvote ]]</span>
+          <span vote @click="down(post.id)">🔽[[ post.downvote ]]</span>
+        </article>
+
+
+      </section>
+
+    </main>
+
+    <script type="text/javascript" src="/static/js/main.js"></script>
+  </body>
+</html>
