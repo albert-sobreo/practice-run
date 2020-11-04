@@ -12,11 +12,12 @@ response
 { id:0, username: '', post:'sample post', upvote:0, downvote:0 }
 
 
+/fetch
 
 
 /upvote/:id
 { id:0, username: '', post:'sample post', upvote:0, downvote:0 }
 
 
-/upvote/:id
+/downvote/:id
 { id:0, username: '', post:'sample post', upvote:0, downvote:0 }

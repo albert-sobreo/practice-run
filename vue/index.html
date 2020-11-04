@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Sample</title>
+    <script type="text/javascript" src="vue.js"></script>
+
+  </head>
+  <body>
+    <main id="app">
+      <div modal v-bind:ready="ready">
+        <div prompt>
+          <h2>Let's Get Started</h2>
+          <input type="text" name="" v-model="username" placeholder="username">
+          <br>
+          <button type="button" @click="start" class="full">Start</button>
+        </div>
+      </div>
+
+      <section>
+        <h2 v-show="ready==true">Hello {{ userName }}</h2>
+
+        <article>
+          <h3>Create</h3>
+          <textarea v-model="entry"></textarea>
+          <div class="right">
+            <button type="button" name="button">Post</button>
+          </div>
+        </article>
+
+        <article v-for="post in posts" class="thread">
+          <h3>{{ post.username }}</h3>
+          <p>{{ post.post }}</p>
+          <span vote>🔼{{ post.upvote }}</span>
+          <span vote>🔽{{ post.downvote }}</span>
+        </article>
+
+
+      </section>
+
+    </main>
+
+    <script type="text/javascript" src="main.js"></script>
+  </body>
+</html>
