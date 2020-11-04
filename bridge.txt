@@ -1,0 +1,22 @@
+/
+response
+index.html ('static')
+
+
+
+/create/
+request
+{ username: '', post:'sample post'}
+
+response
+{ id:0, username: '', post:'sample post', upvote:0, downvote:0 }
+
+
+
+
+/upvote/:id
+{ id:0, username: '', post:'sample post', upvote:0, downvote:0 }
+
+
+/upvote/:id
+{ id:0, username: '', post:'sample post', upvote:0, downvote:0 }
