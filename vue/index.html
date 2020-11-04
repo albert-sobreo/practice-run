@@ -19,21 +19,21 @@
       </div>
 
       <section>
-        <h2 v-show="ready==true">Hello {{ userName }}</h2>
+        <h2 v-show="ready==true">Hello [[ userName ]]</h2>
 
         <article>
           <h3>Create</h3>
           <textarea v-model="entry"></textarea>
           <div class="right">
-            <button type="button" name="button">Post</button>
+            <button type="button" name="button" @click="push()">Post</button>
           </div>
         </article>
 
         <article v-for="post in posts" class="thread">
-          <h3>{{ post.username }}</h3>
-          <p>{{ post.post }}</p>
-          <span vote>🔼{{ post.upvote }}</span>
-          <span vote>🔽{{ post.downvote }}</span>
+          <h3>[[ post.username ]]</h3>
+          <p>[[ post.post ]]</p>
+          <span vote @click="up(post.id)">🔼[[ post.upvote ]]</span>
+          <span vote @click="down(post.id)">🔽[[ post.downvote ]]</span>
         </article>
 
 
